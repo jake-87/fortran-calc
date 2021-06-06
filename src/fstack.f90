@@ -48,7 +48,6 @@ module fstack
             allocate(stack%stack(stack%stack_size))
             do var = 0, stack%stack_size
                 stack%stack(var:var) = 0
-                print *, stack%stack(var:var)
             end do
             stack%point = 1
         end subroutine fs_reset_stack
