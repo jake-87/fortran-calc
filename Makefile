@@ -1,9 +1,10 @@
-.PHONY:
+PHONY:
 	make compile
 	make run
+	make clean
 compile:
-	gfortran src/*.f90 -o main
-run : main
-	./main
+	gfortran src/*.f90 -o fcalc
+run : fcalc
+	./fcalc
 clean:
-	rm -f main *.mod
+	rm -f fcalc *.mod
