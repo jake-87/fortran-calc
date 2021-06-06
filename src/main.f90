@@ -57,6 +57,8 @@ program main
                         stop
                     case ('help')
                         print *, "Reverse Poland notation calculator."
+                        print *, "Avalible ops: ", " + - * / ^ # sin cos tan"
+                        print *, "Avalible commands:", " p(rint) r(eset) q(uit)"
                     case default
                         print *, "?" 
                 end select
