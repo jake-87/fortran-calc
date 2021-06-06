@@ -36,7 +36,7 @@ module fstack
         end function fs_create_stack
         subroutine fs_peek(stack, x) ! Just take a quick peek at the top element, which boils down to 1. Pop top, store top, re push top.
             type(fs_stack), intent(inout) :: stack
-            real, intent(out) :: x
+            real, intent(inout) :: x
             call fs_pop(stack, x)
             call fs_push(stack, x)
         end subroutine fs_peek

@@ -6,7 +6,7 @@ module ops
             real :: a,b,c
             call fs_pop(stack, a)
             call fs_pop(stack, b)
-            c = a + b:
+            c = a + b
             call fs_push(stack, c)
         end subroutine ops_add
         subroutine ops_sub(stack)
@@ -14,7 +14,7 @@ module ops
             real :: a,b,c
             call fs_pop(stack, a)
             call fs_pop(stack, b)
-            c = b - a:
+            c = b - a
             call fs_push(stack, c)
         end subroutine ops_sub
         subroutine ops_mul(stack)
@@ -22,7 +22,7 @@ module ops
             real :: a,b,c
             call fs_pop(stack, a)
             call fs_pop(stack, b)
-            c = a * b:
+            c = a * b
             call fs_push(stack, c)
         end subroutine ops_mul
         subroutine ops_div(stack)
@@ -30,7 +30,7 @@ module ops
             real :: a,b,c
             call fs_pop(stack, a)
             call fs_pop(stack, b)
-            c = b / a:
+            c = b / a
             call fs_push(stack, c)
         end subroutine ops_div
         subroutine ops_mod(stack)
@@ -38,7 +38,7 @@ module ops
             real :: a,b,c
             call fs_pop(stack, a)
             call fs_pop(stack, b)
-            c = b % a:
+            c = modulo(b,a)
             call fs_push(stack, c)
         end subroutine ops_mod
         subroutine ops_pow(stack)
@@ -46,7 +46,7 @@ module ops
             real :: a,b,c
             call fs_pop(stack, a)
             call fs_pop(stack, b)
-            c = pow(b, a):
+            c = b ** a
             call fs_push(stack, c)
         end subroutine ops_pow
         subroutine ops_inv_pow(stack)
@@ -54,6 +54,7 @@ module ops
             real :: a,b,c
             call fs_pop(stack, a)
             call fs_pop(stack, b)
-            c = pow(b, 1/a):
+            c = b ** (1/a)
             call fs_push(stack, c)
+        end subroutine ops_inv_pow
 end module ops
