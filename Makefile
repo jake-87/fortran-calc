@@ -1,10 +1,14 @@
+target = "fcalc"
+flags = '-fdec-math'
 PHONY:
 	make compile
 	make run
-	make clean
 compile:
-	gfortran src/*.f90 -o fcalc
-run : fcalc
-	./fcalc
+	gfortran src/*.f90 -o $(target) $(flags)
+run:
+	./$(target)
 clean:
-	rm -f fcalc *.mod
+	rm -f $(target) *.mod
+gc:
+	git add .
+	git commit

@@ -47,8 +47,16 @@ program main
                         call fs_reset_stack(mainstack)
                         call fs_realloc_stack(mainstack, 2)
                         sizecounter = 2
+                    case('sin')
+                        call ops_sin(mainstack)
+                    case('cos')
+                        call ops_cos(mainstack)
+                    case ('tan')
+                        call ops_tan(mainstack)
                     case ('q')
                         stop
+                    case ('help')
+                        print *, "Reverse Poland notation calculator."
                     case default
                         print *, "?" 
                 end select

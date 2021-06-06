@@ -57,4 +57,25 @@ module ops
             c = b ** (1/a)
             call fs_push(stack, c)
         end subroutine ops_inv_pow
+        subroutine ops_sin(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c
+            call fs_pop(stack, a)
+            c = sind(a)
+            call fs_push(stack, c)
+        end subroutine ops_sin
+        subroutine ops_cos(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c
+            call fs_pop(stack, a)
+            c = cosd(a)
+            call fs_push(stack, c)
+        end subroutine ops_cos
+        subroutine ops_tan(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c
+            call fs_pop(stack, a)
+            c = tand(a)
+            call fs_push(stack, c)
+        end subroutine ops_tan
 end module ops
