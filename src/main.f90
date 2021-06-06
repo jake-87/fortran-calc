@@ -4,16 +4,16 @@ program main
     use strings
     type(fs_stack) :: mainstack
     character(len = 1000) :: input
-    character(len = 100),  dimension(1000) :: args
+    character(len = 25),  dimension(1000) :: args
     character :: delims
     real :: tempreal
-    integer :: counter, nargs, var, var2, isstring, tempnum, sizecounter
+    integer :: nargs, var, isstring, tempnum, sizecounter
     mainstack = fs_create_stack(2)
+    sizecounter = 2
     do
         read(*,'(A)') input
         delims = ' '
         call parse(input, delims, args, nargs)
-        sizecounter = 1
         do var = 1, nargs
             isstring = 0
             if ((args(var)(1:1)) > '9' .or. args(var)(1:1) < '0') then
@@ -43,8 +43,14 @@ program main
                     case ('p')
                         call fs_peek(mainstack, tempreal)
                         print *, "PRINT : ",  tempreal
+                    case ('r')
+                        call fs_reset_stack(mainstack)
+                        call fs_realloc_stack(mainstack, 2)
+                        sizecounter = 2
+                    case ('q')
+                        stop
                     case default
-                        print *, "String Not Reconsised : ", trim(args(var)) 
+                        print *, "?" 
                 end select
             end if
         end do
