@@ -80,6 +80,15 @@ program main
                     case ('.acos')
                         call ops_acos(mainstack)
                         i = 0
+                    case ('.ratan')
+                        call ops_atanr(mainstack)
+                        i = 0
+                    case ('.rasin')
+                        call ops_asinr(mainstack)
+                        i = 0
+                    case ('.racos')
+                        call ops_acosr(mainstack)
+                        i = 0
                     case default
                         i = 100
                 end select
@@ -99,12 +108,13 @@ program main
                         stop
                     case ('help')
                         print *, "PRINT : Reverse Poland notation calculator."
-                        print *, "PRINT : Avalible ops: ", " + - * / ^ # .sin .cos .tan .rsin .rcos .rtan"
+                        print *, "PRINT : Avalible ops: ", " + - * / ^ # .sin .cos .tan .rsin .rcos .rtan .asin .acos .atan"
+                        print *, "PRINT : .rasin .racos .ratan"
                         print *, "PRINT : Avalible commands:", " p (print top of stack) r (reset stack) q (quit) pp (print pointer)"
                     case ('pop')
                         call fs_pop(mainstack, tempreal)
                     case default
-                        print *, "? (", args(var), ") ?" 
+                        print *, "? (", args(var), ") unknown" 
                 end select
             end if
         end do

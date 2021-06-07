@@ -16,6 +16,14 @@ simple reverse poland calculator in fortran.
 * `.rcos`
 * `.rtan`
 * ^ Same as sin, cos, tan but with radians instead of degrees.
+* `.asin`
+* `.acos`
+* `.atan`
+* ^ Arc versions of sin, cos, tan.
+* `.rasin`
+* `.racos`
+* `.ratan`
+* ^ Same as arcsin, cos, tan but in radians.
 
 ## avalible commands:
 * `p`
