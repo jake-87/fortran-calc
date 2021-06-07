@@ -30,7 +30,7 @@ program main
                 read(args(var), *) tempnum
                 call fs_push(mainstack, real(tempnum))
                 i = 0
-            else if (mainstack%point > 2) then
+            else if (mainstack%point > 1) then
                 select case (trim(args(var)))
                     case ("*")
                         call ops_mul(mainstack)

@@ -1,10 +1,6 @@
 target = "fcalc"
 FFLAGS += '-fdec-math' '-Wall' '-Wextra'
-UNAME := $(shell uname)
-
-ifeq ($(UNAME), FreeBSD)
-FFLAGS += '-static' '-fPIC' 
-endif 
+UNAME != $(shell uname)
 PHONY:
 	make compile
 	make run
