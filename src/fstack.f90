@@ -21,6 +21,7 @@ module fstack
             real, intent(inout) :: x
             if ((stack%point /= 1)) then
                 x = stack%stack(stack%point)
+                stack%stack(stack%point + 1) = 0
                 stack%stack(stack%point) = 0
                 stack%point = stack%point - 1
             else ! Uh Oh, Underflow!

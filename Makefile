@@ -1,5 +1,5 @@
 target = "fcalc"
-flags = '-fdec-math'
+flags = '-fdec-math' '-Wall' '-Wextra'
 PHONY:
 	make compile
 	make run
