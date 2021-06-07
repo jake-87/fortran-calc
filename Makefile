@@ -14,3 +14,8 @@ gc:
 	make clean
 	git add .
 	git commit
+mod:
+	.for i in src/*
+		gfortran -c src/$i -o ../
+		rm *.o
+	.endfor
