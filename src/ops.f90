@@ -99,4 +99,25 @@ module ops
             c = cos(a)
             call fs_push(stack, c)
         end subroutine ops_rcos
+        subroutine ops_acos(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c
+            call fs_pop(stack, a)
+            c = acosd(a)
+            call fs_push(stack, c)
+        end subroutine ops_acos
+        subroutine ops_asin(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c
+            call fs_pop(stack, a)
+            c = asind(a)
+            call fs_push(stack, c)
+        end subroutine ops_asin
+        subroutine ops_atan(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c
+            call fs_pop(stack, a)
+            c = atand(a)
+            call fs_push(stack, c)
+        end subroutine ops_atan
 end module ops

@@ -71,6 +71,15 @@ program main
                     case ('.rcos')
                         call ops_rcos(mainstack)
                         i = 0
+                    case ('.atan')
+                        call ops_atan(mainstack)
+                        i = 0
+                    case ('.asin')
+                        call ops_asin(mainstack)
+                        i = 0
+                    case ('.acos')
+                        call ops_acos(mainstack)
+                        i = 0
                     case default
                         i = 100
                 end select
