@@ -8,16 +8,18 @@ program main
     character(len = 30),  dimension(1000) :: args
     character :: delims
     real :: tempreal, tempnum
-    integer :: nargs, var, isstring, sizecounter, i
-    mainstack = fs_create_stack(2)
-    sizecounter = 2
+    integer :: nargs, var, isstring, sizecounter, i = 0
+    mainstack = fs_create_stack(5)
+    sizecounter = 5
+    call fs_push(mainstack, 0.0)
+    call fs_push(mainstack, 0.0)
     do
         write(* ,'(A)', advance="no") prompt
         read(*,'(A)') input
         delims = ' '
         call parse(input, delims, args, nargs)
         do var = 1, nargs
-            i = 199
+            i = 1
             isstring = 0
             if ((args(var)(1:1)) > '9' .or. args(var)(1:1) < '0') then
                 isstring = 1
@@ -75,29 +77,25 @@ program main
             end if
             if (i /= 0) then
                 select case(trim(args(var)))
+                    case ('pp')
+                        print *, "PRINT : ", mainstack%point
                     case ('p')
                         call fs_peek(mainstack, tempreal)
                         print *, "PRINT : ",  tempreal
                     case ('r')
                         call fs_reset_stack(mainstack)
-                        call fs_realloc_stack(mainstack, 2)
+                        call fs_realloc_stack(mainstack, 5)
                         sizecounter = 2
-                    case('ps')
-                        do i = 1, mainstack%stack_size
-                            if (i == mainstack%point) then
-                                print *, mainstack%stack(i), "<--- pointer"
-                            else
-                                print *, mainstack%stack(i)
-                            end if
-                        end do
                     case ('q')
                         stop
                     case ('help')
-                        print *, "Reverse Poland notation calculator."
-                        print *, "Avalible ops: ", " + - * / ^ # .sin .cos .tan .rsin .rcos .rtan"
-                        print *, "Avalible commands:", " p (print top of stack) r (reset stack) q (quit) ps (print stack)"
+                        print *, "PRINT : Reverse Poland notation calculator."
+                        print *, "PRINT : Avalible ops: ", " + - * / ^ # .sin .cos .tan .rsin .rcos .rtan"
+                        print *, "PRINT : Avalible commands:", " p (print top of stack) r (reset stack) q (quit) pp (print pointer)"
+                    case ('pop')
+                        call fs_pop(mainstack, tempreal)
                     case default
-                        print *, "?" 
+                        print *, "? (", args(var), ") ?" 
                 end select
             end if
         end do

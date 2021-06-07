@@ -25,7 +25,6 @@ module fstack
                 stack%stack(stack%point) = 0
                 stack%point = stack%point - 1
             else ! Uh Oh, Underflow!
-                write(0, *) "WARNING : Stack Underflow"
                 x = 0
             end if
         end subroutine fs_pop
