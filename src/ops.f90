@@ -133,7 +133,7 @@ module ops
             call fs_pop(stack, a)
             c = asin(a)
             call fs_push(stack, c)
-        end subroutine ops_asin
+        end subroutine ops_asinr
         subroutine ops_atanr(stack)
             type(fs_stack), intent(inout) :: stack
             real :: a,c
