@@ -4,15 +4,19 @@ program main
     use strings
     type(fs_stack) :: mainstack
     character(len = 1000) :: input
-    character(len = 30) :: prompt = ">>>"
+    character(len=15) :: numbers = "1234567890."
+    character(len = 3) :: prompt = ">>>"
     character(len = 30),  dimension(1000) :: args
     character :: delims
     real :: tempreal, tempnum
-    integer :: nargs, var, isstring, sizecounter, i = 0
+    integer :: nargs, var, sizecounter, i = 0
     mainstack = fs_create_stack(5)
     sizecounter = 5
     call fs_push(mainstack, 0.0)
     call fs_push(mainstack, 0.0)
+    print *, verify("1n31r", numbers)
+    print *, verify("123535", numbers)
+    print *, verify("asdb", numbers)
     do
         write(* ,'(A)', advance="no") prompt
         read(*,'(A)') input
@@ -20,11 +24,8 @@ program main
         call parse(input, delims, args, nargs)
         do var = 1, nargs
             i = 1
-            isstring = 0
-            if ((args(var)(1:1)) > '9' .or. args(var)(1:1) < '0') then
-                isstring = 1
-            end if
-            if (isstring == 0) then
+            print *, "ver args var is ", (verify(trim(args(var)),numbers))
+            if ( ((verify(trim(args(var)), numbers)) == 0)) then
                 call fs_realloc_stack(mainstack, sizecounter + 1)
                 sizecounter = sizecounter + 1
                 read(args(var), *) tempnum
