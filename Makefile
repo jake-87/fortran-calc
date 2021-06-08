@@ -17,3 +17,7 @@ gc:
 mod:
 	gfortran -c src/*.f90
 	rm *.o
+brun:
+	make clean
+	make compile
+	make run
