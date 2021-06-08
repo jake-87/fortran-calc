@@ -12,4 +12,5 @@ Branches are labeled like this:
 * Feature branch: add/whatever
 * Bug branch: bug/whatever
 * Critical bug: critical/whatever
+
 Please adhere to this when making branches, but otherwise, feel free to help!
