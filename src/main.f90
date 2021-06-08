@@ -14,14 +14,14 @@ program main
     sizecounter = 5
     call fs_push(mainstack, 0.0)
     call fs_push(mainstack, 0.0)
-    do
+do
         write(* ,'(A)', advance="no") prompt
         read(*,'(A)') input
         delims = ' '
         call parse(input, delims, args, nargs)
         do var = 1, nargs
             i = 1
-            if ( ((verify(trim(args(var)), numbers)) == 0)) then
+            if (((verify(trim(args(var)), numbers)) == 0)) then
                 call fs_realloc_stack(mainstack, sizecounter + 1)
                 sizecounter = sizecounter + 1
                 read(args(var), *) tempnum
