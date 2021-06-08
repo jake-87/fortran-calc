@@ -1,7 +1,7 @@
 module ops
     use fstack
     contains
-        subroutine ops_add(stack)
+        subroutine ops_add(stack) ! Add 2 numbers from the stack
             type(fs_stack), intent(inout) :: stack
             real :: a,b,c
             call fs_pop(stack, a)
@@ -9,7 +9,7 @@ module ops
             c = a + b
             call fs_push(stack, c)
         end subroutine ops_add
-        subroutine ops_sub(stack)
+        subroutine ops_sub(stack) ! See add
             type(fs_stack), intent(inout) :: stack
             real :: a,b,c
             call fs_pop(stack, a)
@@ -17,7 +17,7 @@ module ops
             c = b - a
             call fs_push(stack, c)
         end subroutine ops_sub
-        subroutine ops_mul(stack)
+        subroutine ops_mul(stack) ! See add
             type(fs_stack), intent(inout) :: stack
             real :: a,b,c
             call fs_pop(stack, a)
@@ -25,7 +25,7 @@ module ops
             c = a * b
             call fs_push(stack, c)
         end subroutine ops_mul
-        subroutine ops_div(stack)
+        subroutine ops_div(stack) ! See add
             type(fs_stack), intent(inout) :: stack
             real :: a,b,c
             call fs_pop(stack, a)
@@ -33,7 +33,7 @@ module ops
             c = b / a
             call fs_push(stack, c)
         end subroutine ops_div
-        subroutine ops_mod(stack)
+        subroutine ops_mod(stack) ! Modulo
             type(fs_stack), intent(inout) :: stack
             real :: a,b,c
             call fs_pop(stack, a)
@@ -41,7 +41,7 @@ module ops
             c = modulo(b,a)
             call fs_push(stack, c)
         end subroutine ops_mod
-        subroutine ops_pow(stack)
+        subroutine ops_pow(stack) ! Powers
             type(fs_stack), intent(inout) :: stack
             real :: a,b,c
             call fs_pop(stack, a)
@@ -49,7 +49,7 @@ module ops
             c = b ** a
             call fs_push(stack, c)
         end subroutine ops_pow
-        subroutine ops_inv_pow(stack)
+        subroutine ops_inv_pow(stack) ! Roots, via inverse powers
             type(fs_stack), intent(inout) :: stack
             real :: a,b,c
             call fs_pop(stack, a)
@@ -57,7 +57,7 @@ module ops
             c = b ** (1/a)
             call fs_push(stack, c)
         end subroutine ops_inv_pow
-        subroutine ops_sin(stack)
+        subroutine ops_sin(stack) ! Trig functions
             type(fs_stack), intent(inout) :: stack
             real :: a,c
             call fs_pop(stack, a)
@@ -141,21 +141,21 @@ module ops
             c = atan(a)
             call fs_push(stack, c)
         end subroutine ops_atanr
-        subroutine ops_loge(stack)
+        subroutine ops_loge(stack) ! Natural Log
             type(fs_stack), intent(inout) :: stack
             real :: a,c
             call fs_pop(stack, a)
             c = log(a)
             call fs_push(stack, c)
         end subroutine ops_loge
-        subroutine ops_log10(stack)
+        subroutine ops_log10(stack) ! Log 10
             type(fs_stack), intent(inout) :: stack
             real :: a,c
             call fs_pop(stack, a)
             c = log10(a)
             call fs_push(stack, c)
         end subroutine ops_log10
-        subroutine ops_log(stack)
+        subroutine ops_log(stack) ! Log with base of number off stack, via natural log division.
             type(fs_stack), intent(inout) :: stack
             real :: a,c,b
             call fs_pop(stack, a)

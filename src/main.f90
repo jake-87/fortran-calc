@@ -14,21 +14,21 @@ program main
     sizecounter = 5
     call fs_push(mainstack, 0.0)
     call fs_push(mainstack, 0.0)
-    do
+    do ! repeat the calculator until the user exits
         write(* ,'(A)', advance="no") prompt
-        read(*,'(A)') input
+        read(*,'(A)') input ! Read user input
         delims = ' '
-        call parse(input, delims, args, nargs)
+        call parse(input, delims, args, nargs) ! Split user imput into an array
         do var = 1, nargs
             i = 1
-            if (((verify(trim(args(var)), numbers)) == 0)) then
-                call fs_realloc_stack(mainstack, sizecounter + 1)
+            if (((verify(trim(args(var)), numbers)) == 0)) then ! Check if array(var) contains only numbers
+                call fs_realloc_stack(mainstack, sizecounter + 1) ! If yes, push that number onto the stack
                 sizecounter = sizecounter + 1
                 read(args(var), *) tempnum
                 call fs_push(mainstack, real(tempnum))
                 i = 0
-            else if (mainstack%point > 1) then
-                select case (trim(args(var)))
+            else if (mainstack%point > 1) then ! If no, and we have the opertunity
+                select case (trim(args(var))) ! Check what operator the user may have entered
                     case ("*")
                         call ops_mul(mainstack)
                         i = 0
@@ -95,11 +95,11 @@ program main
                     case ('.log')
                         call ops_log(mainstack)
                         i = 0
-                    case default
+                    case default ! If no operator was entered, set i to something other than 0
                         i = 100
                 end select
             end if
-            if (i /= 0) then
+            if (i /= 0) then ! If i is not zero, check if the user imputted a command
                 select case(trim(args(var)))
                     case ('pp')
                         print *, "PRINT : ", mainstack%point
@@ -119,7 +119,7 @@ program main
                         print *, "PRINT : Avalible commands:", " p (print top of stack) r (reset stack) q (quit) pp (print pointer)"
                     case ('pop')
                         call fs_pop(mainstack, tempreal)
-                    case default
+                    case default ! If no, we do not know what they inputted, so we tell them that.
                         print *, "? (", args(var), ") unknown" 
                 end select
             end if
