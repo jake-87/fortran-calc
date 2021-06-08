@@ -2,7 +2,6 @@ target = "fcalc"
 FFLAGS += '-fdec-math' '-Wall' '-Wextra'
 PHONY:
 	make compile
-	make run
 compile:
 	make clean
 	make mod
