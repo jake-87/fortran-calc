@@ -5,7 +5,7 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| Main    | :green_check_mark: |
+| Main    | ✔️                 |
 | 1.1.0   | :white_check_mark: |               
 | < 1.1.0 | :x:                |
 
