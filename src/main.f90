@@ -14,7 +14,7 @@ program main
     sizecounter = 5
     call fs_push(mainstack, 0.0)
     call fs_push(mainstack, 0.0)
-do
+    do
         write(* ,'(A)', advance="no") prompt
         read(*,'(A)') input
         delims = ' '
