@@ -141,5 +141,26 @@ module ops
             c = atan(a)
             call fs_push(stack, c)
         end subroutine ops_atanr
-
+        subroutine ops_loge(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c
+            call fs_pop(stack, a)
+            c = log(a)
+            call fs_push(stack, c)
+        end subroutine ops_loge
+        subroutine ops_log10(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c
+            call fs_pop(stack, a)
+            c = log10(a)
+            call fs_push(stack, c)
+        end subroutine ops_log10
+        subroutine ops_log(stack)
+            type(fs_stack), intent(inout) :: stack
+            real :: a,c,b
+            call fs_pop(stack, a)
+            call fs_pop(stack, b)
+            c = log (a) / log (b)
+            call fs_push(stack, c)
+        end subroutine ops_log
 end module ops

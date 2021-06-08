@@ -5,7 +5,7 @@ program main
     type(fs_stack) :: mainstack
     character(len = 1000) :: input
     character(len=15) :: numbers = "1234567890."
-    character(len = 3) :: prompt = ">>>"
+    character(len = 5) :: prompt = ">>>"
     character(len = 30),  dimension(1000) :: args
     character :: delims
     real :: tempreal, tempnum
