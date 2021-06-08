@@ -86,6 +86,15 @@ program main
                     case ('.racos')
                         call ops_acosr(mainstack)
                         i = 0
+                    case ('.loge')
+                        call ops_loge(mainstack)
+                        i = 0
+                    case ('.log10')
+                        call ops_log10(mainstack)
+                        i = 0
+                    case ('.log')
+                        call ops_log(mainstack)
+                        i = 0
                     case default
                         i = 100
                 end select
@@ -106,7 +115,7 @@ program main
                     case ('help')
                         print *, "PRINT : Reverse Poland notation calculator."
                         print *, "PRINT : Avalible ops: ", " + - * / ^ # .sin .cos .tan .rsin .rcos .rtan .asin .acos .atan"
-                        print *, "PRINT : .rasin .racos .ratan"
+                        print *, "PRINT : .rasin .racos .ratan .loge .log10 .log"
                         print *, "PRINT : Avalible commands:", " p (print top of stack) r (reset stack) q (quit) pp (print pointer)"
                     case ('pop')
                         call fs_pop(mainstack, tempreal)

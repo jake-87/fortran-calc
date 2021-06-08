@@ -24,6 +24,10 @@ simple reverse poland calculator in fortran.
 * `.racos`
 * `.ratan`
 * ^ Same as arcsin, cos, tan but in radians.
+* `.loge`
+* `.log10`
+* `.log`
+* ^ Calculates logs. The `.log` command works like this: `2 8 log`, calculating log <sub>2</sub> (8).
 
 ## avalible commands:
 * `p`
