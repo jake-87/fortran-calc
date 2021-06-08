@@ -14,9 +14,6 @@ program main
     sizecounter = 5
     call fs_push(mainstack, 0.0)
     call fs_push(mainstack, 0.0)
-    print *, verify("1n31r", numbers)
-    print *, verify("123535", numbers)
-    print *, verify("asdb", numbers)
     do
         write(* ,'(A)', advance="no") prompt
         read(*,'(A)') input
@@ -24,7 +21,6 @@ program main
         call parse(input, delims, args, nargs)
         do var = 1, nargs
             i = 1
-            print *, "ver args var is ", (verify(trim(args(var)),numbers))
             if ( ((verify(trim(args(var)), numbers)) == 0)) then
                 call fs_realloc_stack(mainstack, sizecounter + 1)
                 sizecounter = sizecounter + 1
