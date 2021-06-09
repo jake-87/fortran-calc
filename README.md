@@ -2,8 +2,8 @@
 simple reverse poland calculator in fortran.
 
 ## How to build:
-Simply download the source, and do a `bmake`. This will compile the software, and will place the executable as fcalc in the top level dir of this project.
-
+* Clone latest source with `git clone https://github.com/jake-87/fortran-calc` or stable source with `git clone https://github.com/jake-87/fortran-calc/tree/stable`
+* Run `bmake` in top directory, which will output an executable named `fcalc`.
 Requirements:
 * `gfortran`
 * `bmake`
