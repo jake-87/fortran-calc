@@ -119,6 +119,12 @@ program main
                         print *, "PRINT : Avalible commands:", " p (print top of stack) r (reset stack) q (quit) pp (print pointer)"
                     case ('pop')
                         call fs_pop(mainstack, tempreal)
+                    case ('.pi')
+                        call fs_push(mainstack, real(4.D0*datan(1.D0)))
+                    case ('.tau')
+                        call fs_push(mainstack, real(4.D0 * datan(1.D0) * 2.D0))
+                    case ('.e')
+                        call fs_push(mainstack,  exp(1.0))
                     case default ! If no, we do not know what they inputted, so we tell them that.
                         print *, "? (", args(var), ") unknown" 
                 end select
