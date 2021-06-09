@@ -4,6 +4,7 @@ simple reverse poland calculator in fortran.
 ## How to build:
 * Clone latest source with `git clone https://github.com/jake-87/fortran-calc` or stable source with `git clone https://github.com/jake-87/fortran-calc/tree/stable`
 * Run `bmake` in top directory, which will output an executable named `fcalc`.
+
 Requirements:
 * `gfortran`
 * `bmake`
