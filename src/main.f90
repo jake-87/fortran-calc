@@ -125,6 +125,8 @@ program main
                         call fs_push(mainstack, real(4.D0 * datan(1.D0) * 2.D0))
                     case ('.e')
                         call fs_push(mainstack,  exp(1.0))
+                    case ('.gr')
+                        call fs_push(mainstack, sind(54.0) * 2)
                     case default ! If no, we do not know what they inputted, so we tell them that.
                         print *, "? (", args(var), ") unknown" 
                 end select
