@@ -35,6 +35,13 @@ Requirements:
 * `.log10`
 * `.log`
 * ^ Calculates logs. The `.log` command works like this: `2 8 log`, calculating log <sub>2</sub> (8).
+* `.pi` 
+* `.tau`
+* `.gr` (Golden Ratio)
+* `.e`
+* ^ Pushes the corresponding irrational number onto the stack.
+
+
 
 ## avalible commands:
 * `p`
