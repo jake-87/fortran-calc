@@ -1,6 +1,8 @@
 # fortran-calc
 simple reverse poland calculator in fortran.
 
+Please note that `stringmod.f90` and `precmod.f90` are not my own work. Unfortunatly, I have lost the source for these files.
+
 ## How to build:
 * Clone latest source with `git clone https://github.com/jake-87/fortran-calc` or stable source with `git clone https://github.com/jake-87/fortran-calc/tree/stable`
 * Run `bmake` in top directory, which will output an executable named `fcalc`.
